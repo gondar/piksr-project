@@ -6,10 +6,17 @@ if ARGV.size <2
 end
 method = ARGV[0].downcase
 url = ARGV[1]
+post_text = ARGV[2] || "Empty post" 
 c= HTTPClient.new
-if method == 'get'
+case method 
+when 'get'
   puts c.get(url).content
-else
-  post_text = ARGV[2] || "Empty post" 
+when 'post'
   puts c.post(url,post_text).content
+when 'put'
+  puts c.put(url,post_text).content
+when 'delete'
+  puts c.delete(url).content
+else
+  puts "Unkown method #{method}"
 end

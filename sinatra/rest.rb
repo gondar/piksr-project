@@ -5,11 +5,19 @@ require 'yaml'
 $posts = ["Strona w budowie", "Zaczynam mój własny mikroblog!"]
 
 get '/' do
-  puts $posts.to_yaml
   $posts.to_yaml
 end
 
 post '/' do
-  $posts << params.keys[0]
+  $posts << request.body.read
+  "OK"
+end
+
+delete '/:id/?' do
+  $posts.delete_at(params[:id].to_i)
+end
+
+put '/:id/?' do
+  $posts[params[:id].to_i] = request.body.read
   "OK"
 end
