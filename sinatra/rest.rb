@@ -5,6 +5,9 @@ require 'yaml'
 $posts = ["Strona w budowie", "Zaczynam mój własny mikroblog!"]
 
 get '/' do
+  puts
+  puts env.to_yaml
+  puts
   $posts.to_yaml
 end
 
