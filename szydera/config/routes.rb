@@ -1,4 +1,6 @@
 Szydera::Application.routes.draw do |map|
+  resources :jokes
+
   get "home/index"
 
   root :to => "home#index"
