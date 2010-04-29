@@ -1,4 +1,8 @@
 Szydera::Application.routes.draw do |map|
+  get "home/index"
+
+  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
