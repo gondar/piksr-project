@@ -1,5 +1,7 @@
 Szydera::Application.routes.draw do |map|
-  resources :jokes
+  resources :jokes do
+    resources :comments
+  end
 
   get "home/index"
 
