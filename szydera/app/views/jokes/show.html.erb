@@ -23,6 +23,10 @@
   <p>
   <b>Comment:</b>  <%= comment.body %>
   </p>
+  <p>
+   <%= link_to 'Destroy Comment', [comment.joke, comment], :confirm => 'Are you sure?', :method => :delete %>
+  </p>
+
 <% end %>
 <hr>
 <h2>Add a comment:</h2>
