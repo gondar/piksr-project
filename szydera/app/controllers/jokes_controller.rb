@@ -1,4 +1,6 @@
 class JokesController < ApplicationController
+  before_filter :authenticate, :except => [:index, :show, :new, :create]
+
   # GET /jokes
   # GET /jokes.xml
   def index

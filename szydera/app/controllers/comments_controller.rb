@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate, :only => :destroy
+
   def create
     @joke = Joke.find(params[:joke_id])
     @comment = @joke.comments.create(params[:comment])
